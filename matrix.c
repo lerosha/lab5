@@ -1,55 +1,25 @@
-#include <stdio.h>
+#include <stdio.h> 
+#include <stdlib.h> 
+#include <time.h> 
+#include "func.h"
 
-#include <stdlib.h>
+void Func()
+{
+srand(time(NULL));
+int i, j, n = 0; 
+int A[5][7];
 
-void creation(int matrix[7][5]) {
+for (i = 0; i < 5; i++, printf("\n"))
+    for (j = 0; j < 7; j++, printf("\t"))
+    {
+    A[i][j] = (rand() % 101) - 50;
+    printf("%4d ", A[i][j]);
+    }
 
-for(int i = 0; i < 7; i++){
+for (i=0; i<5; i++)
+    for (j=0; j<7; j++) 
+        if ((A[i][j]%3)==0 && (A[i][j]%5)!=0)
+            ++n;
 
-for(int j = 0; j < 5; j++){
-
-matrix[i][j] = -50 + rand() % (50 + 50 + 1);
-
-}
-
-}
-
-}
-
-void output(int matrix[7][5]) {
-
-for(int i = 0; i < 7; i++){
-
-for(int j = 0; j < 5; j++){
-
-printf("%5d", matrix[i][j]);
-
-}
-
-printf("\n");
-
-}
-
-}
-
-void search(int matrix[7][5]){
-
-int min = 51;
-
-for(int i = 0; i < 7; i++){
-
-for(int j = 0; j < 6; j++){
-
-if(matrix[i][j] < min){
-
-min = matrix[i][j];
-
-}
-
-}
-
-}
-
-printf("%d", min);
-
+    printf("n = %i\n", n);
 }
