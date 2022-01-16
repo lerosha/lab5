@@ -1,22 +1,43 @@
-#include <stdio.h> 
-#include <stdlib.h> 
-#include <time.h> 
-#include "func.h"
+#include <stdio.h>
 
-void Func()
-{
-srand(time(NULL));
-int i, n; 
-int A[35];
+#include <stdlib.h>
 
-for (i = 0; i < 35; i++, printf("\n"))
-{
-printf("%d ", (A[i] = (rand() % 101) - 50)); 
+void creation(int* array) {
+
+for(int i = 0; i < 23; i++){
+
+array[i] = -50 + rand() % (50 + 50 + 1);
+
 }
 
-for (i=0, n=0; i<35; i++)
-        if ((A[i]%3)==0 && (A[i]%5)!=0)
-            ++n;
+}
 
-    printf("n = %i\n", n);
+void output(int* array) {
+
+for(int i = 0; i < 23; i++){
+
+printf("%d ", array[i]);
+
+}
+
+printf("\n");
+
+}
+
+void search(int* array){
+
+int min = 51;
+
+for(int i = 0; i < 23; i++){
+
+if(array[i] < min){
+
+min = array[i];
+
+}
+
+}
+
+printf("%d", min);
+
 }
